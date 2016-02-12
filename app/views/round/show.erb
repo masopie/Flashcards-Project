@@ -5,9 +5,9 @@ Flashcards
   <%= @message  %>
 <% end %>
 
-<%= @card.question %>
+<%= @next_card.question %>
 
-<form action="../rounds/<%=@round.id%>/cards/<%=@card.id%>" method="post">
+<form action="/rounds/<%=@round.id%>/cards/<%=@next_card.id%>" method="post">
   <label>Enter your guess:</label><br>
   <input type="text" name="attempt">
   <input type="submit" value="Submit your guess">
