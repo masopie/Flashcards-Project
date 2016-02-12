@@ -1,6 +1,15 @@
 <div class="container">
 <form action="/register" method="post">
 
+    <% if @errors %>
+    <% @errors.each do |err| %>
+    <ul>
+        <li>
+            <% err %>
+        </li>
+    </ul>
+    <% end %>
+    <% end %>
     <label for="username">username: </label>
     <br>
     <input type="text" name="username" placeholder ="pick a name!" />
