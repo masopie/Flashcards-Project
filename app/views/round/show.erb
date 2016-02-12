@@ -1,10 +1,10 @@
-Flashcards
-<%= @round.deck.name  %>
-
+flashcards<br>
+<h2><%= @round.deck.name  %></h2>
+<br>
 <% if @message %>
   <%= @message  %>
 <% end %>
-
+<br>
 <%= @next_card.question %>
 
 <form action="/rounds/<%=@round.id%>/cards/<%=@next_card.id%>" method="post">
