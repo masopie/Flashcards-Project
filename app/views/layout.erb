@@ -18,7 +18,17 @@
   <title></title>
 </head>
 <body>
+<ul>
+  <% if current_user %>
+    <li>Welcome</li>
+    <li><%= current_user.username %></li>
+    <li><a href="/">home</a></li>
+  <% else %>
+    <li><a href="/login">login</a></li>
+    <li><a href="/register">register</a></li>
+    <li><a href="/">home</a></li>
+  <% end %>
+</ul>
   <%= yield %>
-  <a href='/'>home</a>
 </body>
 </html>
