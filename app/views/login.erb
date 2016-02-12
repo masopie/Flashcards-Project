@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>QUESARITO BURRITO GUACAMOLE BURGER FLASH CARD EXTRAVAGANZA JAMBOREE</h1>
+<% if current_user %>
+  <h1>hooplah</h1>
+  <form action="/logout" method="get">
+    <input type="submit" value="logout">
+  </form>
+  <% else %>
+  <p>Returning user? Login below:</p>
+    <% if @error_login %>
+    <ul>
+      <li><%= @error_login %></li>
+    </ul>
+    <% end %>
+
+  <form action="/login" method="post">
+    <label for="username">username: </label>
+    <br>
+    <input type="text" name="username" placeholder ="gimme your username" />
+    <br>
+
+    <label for="password">password: </label>
+    <br>
+    <input type="text" name="password" placeholder ="and your password" />
+    <br>
+
+    <input type="submit" value="Login">
+  </form>
+
+  <p>New user? Hold onto your quesurritamoleurger:</p>
+
+    <a href="/register">Sign Up</a>
+<% end %>
+</div>
