@@ -1,0 +1,14 @@
+Flashcards
+<%= @round.deck.name  %>
+
+<% if @message %>
+  <%= @message  %>
+<% end %>
+
+<%= @card.question %>
+
+<form action="../rounds/<%=@round.id%>/cards/<%=@card.id%>" method="post">
+  <label>Enter your guess:</label><br>
+  <input type="text" name="attempt">
+  <input type="submit" value="Submit your guess">
+</form>
