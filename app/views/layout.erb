@@ -21,7 +21,10 @@
 <ul>
   <% if current_user %>
     <li>Welcome</li>
-    <li><%= current_user.username %></li>
+    <li><a href="/user/<%= current_user.id %>"><%= current_user.username %></a></li>
+    <li><form action="/logout" method="get">
+      <input type="submit" value="logout">
+    </form></li>
     <li><a href="/">home</a></li>
   <% else %>
     <li><a href="/login">login</a></li>
