@@ -16,15 +16,28 @@ get '/rounds/:id' do
   erb :'/round/show'
 end
 
+get '/rounds/:id/end' do
+  @round = Round.find(params[:id])
+  erb :'/round/end'
+end
+
+
 post '/rounds/:round_id/cards/:id' do
   @round = Round.find(params[:round_id])
   @card = Card.find(params[:id])
+  @round.total_guesses += 1
+  @round.save
   guess = Guess.where(round_id: @round.id, card_id: @card.id).first
   if params[:attempt] == @card.answer
     @message = "Correct!"
     guess.update_attribute("correct", true)
-    @next_card = @round.guesses.where(correct: false).first.card
-    erb :'/round/show'
+    first_guess = @round.guesses.where(correct: false).first
+    if first_guess
+      @next_card = first_guess.card
+      erb :'/round/show'
+    else
+      redirect "/rounds/#{@round.id}/end"
+    end
   else
     @message = "Incorrect:"
     @message += "The correct answer is #{@card.answer}"
