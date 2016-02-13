@@ -32,7 +32,10 @@ post '/rounds/:round_id/cards/:id' do
   if params[:attempt] == @card.answer
     @message = "Correct!"
     guess.update_attribute("correct", true)
-    first_guess = @round.guesses.where(correct: false).first
+    if guess.body == nil
+      guess.update_attribute("first_guess_correct", true)
+    end
+    first_guess = @round.guesses.where(correct: false).shuffle.first
     if first_guess
       @next_card = first_guess.card
       erb :'/round/show'

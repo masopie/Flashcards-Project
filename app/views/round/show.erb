@@ -8,6 +8,7 @@
 
 <form action="/rounds/<%=@round.id%>/cards/<%=@next_card.id%>" method="post">
   <br>
-  <input type="text" name="attempt">
+  <input type="text" autocomplete="off" name="attempt">
   <input class="btn btn-primary"type="submit"  value="Submit your guess">
 </form>
+

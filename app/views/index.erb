@@ -1,7 +1,7 @@
-
-<h2>Decks:</h2>
+<br><br><br><br><br>
+<h2 class="ddd">decks</h2>
 <% @decks.each do |deck| %>
-<a href="/decks/<%= deck.id %>"><%= deck.name %></a><br>
+<a class="decks" href="/decks/<%= deck.id %>"><strong><%= deck.name %></strong></a><br>
 <% end %>
 
 

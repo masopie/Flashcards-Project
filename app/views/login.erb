@@ -1,10 +1,9 @@
 
-  <h1>login</h1>
+  <h1 class="jjj">login</h1>
 <% if current_user %>
   You are already logged in.
   <a class="btn btn-primary" href="/user/<%= current_user.id  %>" type="button">Your home page</a>
   <% else %>
-  <p>Returning user? Login below:</p>
     <% if @error_login %>
     <ul>
       <li><%= @error_login %></li>
@@ -12,14 +11,14 @@
     <% end %>
 
   <form action="/login" method="post">
-    <label for="username">username: </label>
+    <label for="username"></label>
     <br>
-    <input type="text" name="username" placeholder ="" />
+    <input type="text" name="username" placeholder ="username" />
     <br>
 
-    <label for="password">password: </label>
+    <label for="password"></label>
     <br>
-    <input type="password" name="password" placeholder ="" />
+    <input type="password" name="password" placeholder ="password" />
     <br><br>
 
     <input class="btn btn-primary" type="submit" value="Login">
