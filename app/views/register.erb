@@ -1,4 +1,4 @@
-<div class="container">
+<h1>register</h1>
 <form action="/register" method="post">
 
     <% if @errors %>
@@ -12,20 +12,20 @@
     <% end %>
     <label for="username">username: </label>
     <br>
-    <input type="text" name="username" placeholder ="pick a name!" />
+    <input type="text" name="username" placeholder ="" />
     <br>
 
     <label for="password">password: </label>
     <br>
-    <input type="password" name="password" placeholder ="pick a pass!" />
+    <input type="password" name="password" placeholder ="" />
     <br>
 
     <label for="email">email: </label>
     <br>
-    <input type="text" name="email" placeholder ="type a thing!" />
-    <br>
+    <input type="text" name="email" placeholder ="" />
+    <br><br>
 
-    <input type="submit" value="Register">
+    <input class="btn btn-primary" type="submit" value="Register">
 
 </form>
-</div>
+

@@ -1,9 +1,7 @@
 
-<h1 class="jumbotron">QUESARITO BURRITO GUACAMOLE BURGER FLASH CARD EXTRAVAGANZA JAMBOREE</h1>
-
 <h2>Decks:</h2>
 <% @decks.each do |deck| %>
-<a href="/decks/<%= deck.id %>"><%= deck.name %></a>
+<a href="/decks/<%= deck.id %>"><%= deck.name %></a><br>
 <% end %>
 
 

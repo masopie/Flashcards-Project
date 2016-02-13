@@ -26,7 +26,7 @@ end
 post '/register/?' do
   user = User.new(username: params[:username], email: params[:email], password: params[:password])
   if user.save
-    redirect '/'
+    redirect '/login'
   else
     @errors = user.errors.full_messages
     erb :'register'
