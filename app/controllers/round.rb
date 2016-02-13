@@ -1,7 +1,8 @@
 get '/decks/:id' do
   @deck = Deck.find(params[:id])
   @round = Round.create(deck_id: @deck.id)
-  # @round.user = current_user.id if current_user
+  @round.user = User.find(current_user.id) if current_user
+  @round.save
   @round.cards.each do |card|
     Guess.create(round_id: @round.id, card_id: card.id)
   end
