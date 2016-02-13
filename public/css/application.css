@@ -58,7 +58,7 @@ body {
 }
 
 .decks {
-  color: #4587c7;
+  color: #00405d;
   font-size: 21px;
 }
 
@@ -68,5 +68,9 @@ body {
 
 .ddd {
   color: #00405d;
+}
+
+.ourimage {
+  background: url(../team_monster.jpg);
 }
 

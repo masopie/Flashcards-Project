@@ -8,14 +8,24 @@
 <br><br>
 <% if @user.rounds %>
   <strong><% @user.rounds.each do |round| %>
-  You completed a round of <mark><%=round.deck.name  %></mark> on <mark><%=round.created_at.to_date  %></mark>. You answered
+  You played a round of <mark><%=round.deck.name  %></mark> on <mark><%=round.created_at.to_date  %></mark>. You answered
 <mark><%= round.guesses.where(first_guess_correct: true).length %> / <%=round.cards.length  %></mark>
-  of cards right on the first guess.
+  of cards right on the first guess. Total correct: <mark><%=round.guesses.where(correct: true).length  %></mark>
   Total Guesses: <mark><%=round.total_guesses  %></mark>
   <br><br>
   <% end %></strong>
+<br>
+<h3 class="ddd"><a class="ddd" href="/user/<%=@user.id%>/decks/new">Create new Deck</a></h3>
 <% end %>
 
+<h2 class='ddd'>your decks</h2>
+<% if @user.decks %>
+<% @user.decks.each do |deck| %>
+<a class="decks" href="/decks/<%= deck.id %>"><%= deck.name %></a><br>
+<% end %>
+<% end %>
+<div class="ourimage">
+</div>
 
 <% else %>
 You do not have access to see this profile. Noburritoforyou
