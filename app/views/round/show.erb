@@ -4,7 +4,7 @@
 <% if @message %>
   <%= @message  %>
 <% end %>
-<h4><%= @next_card.question %><h4>
+<h4><%= @next_card.question %></h4>
 
 <form action="/rounds/<%=@round.id%>/cards/<%=@next_card.id%>" method="post">
   <br>
