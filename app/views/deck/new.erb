@@ -1,1 +1,6 @@
-<form action=
+<br><br><br><br>
+
+<form action="/user/<%=current_user.id%>/decks/<%=@deck.id%>" method="post">
+  <input type="text" placeholder="title of deck" name="title">
+  <input class="btn btn-primary" type="submit" value="Submit Title">
+</form>

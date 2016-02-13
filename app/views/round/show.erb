@@ -1,13 +1,14 @@
-<h1>flashcards</h1><br>
+<br><br><br><br><br><br><br><br>
 <h2><%= @round.deck.name  %></h2>
-<br>
+
 <% if @message %>
   <%= @message  %>
 <% end %>
-<h4><%= @next_card.question %><h4>
+<h4><%= @next_card.question %></h4>
 
 <form action="/rounds/<%=@round.id%>/cards/<%=@next_card.id%>" method="post">
-  <label>Enter your guess:</label><br>
-  <input type="text" name="attempt">
-  <input type="submit" value="Submit your guess">
+  <br>
+  <input type="text" autocomplete="off" name="attempt">
+  <input class="btn btn-primary"type="submit"  value="Submit your guess">
 </form>
+

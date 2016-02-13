@@ -18,7 +18,7 @@ post '/login/?' do
     session[:user_id] = user.id
     redirect "/user/#{user.id}"
   else
-    @error_login = 'Nope! GUESSARITOGAIN!'
+    @error_login = 'Invalid Username or Password'
     erb :'login'
   end
 end
@@ -26,7 +26,7 @@ end
 post '/register/?' do
   user = User.new(username: params[:username], email: params[:email], password: params[:password])
   if user.save
-    redirect '/'
+    redirect '/login'
   else
     @errors = user.errors.full_messages
     erb :'register'

@@ -1,20 +1,28 @@
+<br><br><br><br><br>
 <% if current_user == @user %>
-<h1>HEREERERERERER</h1>
-<h1 class="jumbotron">QUESARITO BURRITO GUACAMOLE BURGER FLASH CARD EXTRAVAGANZA JAMBOREE</h1>
 
-<h2>Decks:</h2>
+<h2 class="ddd">flashcard decks</h2>
 <% @decks.each do |deck| %>
-<a href="/decks/<%= deck.id %>"><%= deck.name %></a>
+<a class="decks" href="/decks/<%= deck.id %>"><%= deck.name %></a><br>
 <% end %>
 <br><br>
 <% if @user.rounds %>
-  <% @user.rounds.each do |round| %>
-  You completed a round of <%=round.deck.name  %> on <%=round.created_at.to_date  %>. You answered
-<%= round.guesses.where(body: nil).length %> / <%=round.cards.length  %>
-  of cards right on the first guess.
-  Your total number of guesses: <%=round.total_guesses  %>
+  <strong><% @user.rounds.each do |round| %>
+  You played a round of <mark><%=round.deck.name  %></mark> on <mark><%=round.created_at.to_date  %></mark>. You answered
+<mark><%= round.guesses.where(first_guess_correct: true).length %> / <%=round.cards.length  %></mark>
+  of cards right on the first guess. Total correct: <mark><%=round.guesses.where(correct: true).length  %></mark>
+  Total Guesses: <mark><%=round.total_guesses  %></mark>
   <br><br>
-  <% end %>
+  <% end %></strong>
+<br>
+<h3 class="ddd"><a class="ddd" href="/user/<%=@user.id%>/decks/new">Create new Deck</a></h3>
+<% end %>
+
+<h2 class='ddd'>your decks</h2>
+<% if @user.decks %>
+<% @user.decks.each do |deck| %>
+<a class="decks" href="/decks/<%= deck.id %>"><%= deck.name %></a><br>
+<% end %>
 <% end %>
 
 

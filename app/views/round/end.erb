@@ -1,12 +1,13 @@
+<br><br><br><br><br>
 <h1> CONGRATULATIONS
   <% if current_user %>
   <%= current_user.username  %>
   <% end %></h1>
 
 
-You completed a round of <%=@round.deck.name  %>. You answered
-<%= @round.guesses.where(body: nil).length %> / <%=@round.cards.length  %>
+You completed a round of <mark><%=@round.deck.name  %></mark>. You answered
+<mark><%= @round.guesses.where(first_guess_correct: true).length %> / <%=@round.cards.length  %></mark>
   of cards right on the first guess.
-  Your total number of guesses: <%=@round.total_guesses  %>
+  Your total number of guesses: <mark><%=@round.total_guesses  %></mark>
   <br><br>
 

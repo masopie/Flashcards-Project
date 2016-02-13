@@ -1,0 +1,13 @@
+<% if current_user %>
+<br><br>
+<a class="btn btn-primary" href='/user/<%=current_user.id %>'>Done Creating Cards</a>
+<br><br>
+<form action="/user/<%=current_user.id%>/decks/<%=@deck.id%>/card" method="post">
+  <input type="text" placeholder="question" name="question"><br>
+  <input type="text" placeholder="answer" name="answer"><br>
+  <input class="btn btn-primary" type="submit" value="Submit Card">
+</form>
+
+<% else  %>
+You do not have access to this page.
+<% end %>
